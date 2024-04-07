@@ -4,15 +4,14 @@ export default class eventoCTRL{
         resposta.type('application/json');
         if(requisicao.method === "POST" && requisicao.is('application/json')){
             const dados = requisicao.body; 
-            const cpf = dados.cpf;
             const nome = dados.nome;
             const dataNasc = dados.dataNasc;
             const telefone = dados.telefone;
             const email = dados.email;
             const cidade = dados.cidade;
 
-            if (cpf && nome && dataNasc && telefone && email && cidade ){
-                const evento = new Evento(0, cpf, nome, dataNasc,email , cidade);
+            if (nome && dataNasc && telefone && email && cidade ){
+                const evento = new Evento(0, nome, dataNasc,email , cidade);
                 evento.gravar().then(()=>{
                     resposta.status(201);
                     resposta.json({
@@ -50,7 +49,6 @@ export default class eventoCTRL{
         if ((requisicao.method === "PATCH" || requisicao.method === "PUT") && requisicao.is('application/json')){
             const dados = requisicao.body; 
             const codigo = requisicao.params.codigo;
-            const cpf = dados.cpf;
             const nome = dados.nome;
             const dataNasc = dados.dataNasc;
             const telefone = dados.telefone;
@@ -58,9 +56,9 @@ export default class eventoCTRL{
             const cidade = dados.cidade;
             
         
-            if (codigo && codigo > 0 && cpf && nome && dataNasc && telefone && email && cidade )
+            if (codigo && codigo > 0 && nome && dataNasc && telefone && email && cidade )
             {
-                const evento = new Evento(codigo, cpf, nome, dataNasc, telefone, email, cidade);
+                const evento = new Evento(codigo, nome, dataNasc, telefone, email, cidade);
                 evento.atualizar()
                 .then(()=>{
                     resposta.status(200);

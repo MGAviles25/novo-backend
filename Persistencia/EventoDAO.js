@@ -4,9 +4,9 @@ export default class EventoDAO{
     async gravar(evento){
         if (evento instanceof Partida){
             const conexao = await conectar();
-            const sql = `INSERT INTO partida (cpf, nome, dataNasc, telefone, email,
+            const sql = `INSERT INTO partida (nome, dataNasc, telefone, email,
                          cidade) 
-                         values (?, ?, ?, ?, ?, ?, ?, ?)`;
+                         values (?, ?, ?, ?, ?)`;
             const parametros = [
                 evento.cpf,
                 evento.nome,
@@ -22,11 +22,10 @@ export default class EventoDAO{
     async atualizar(evento){
         if (evento instanceof Evento){
             const conexao = await conectar();
-            const sql = `UPDATE pessoa SET cpf = ?,
+            const sql = `UPDATE pessoa SET 
                          nome = ?, dataNasc = ?, telefone = ?,
                          email = ?, cidade = ? WHERE id = ?`;
             const parametros = [
-                evento.cpf,
                 evento.nome,
                 evento.dataNasc,
                 evento.telefone,
@@ -68,7 +67,6 @@ export default class EventoDAO{
         for (const registro of registros){
             const evento = new Evento(
                 registro.id,
-                registro.cpf,
                 registro.nome,
                 registro.dataNasc,
                 registro.telefone,

@@ -1,16 +1,14 @@
 import EventoDAO from "../Persistencia/EventoDAO.js";
 export default class Evento {
     #codigo;
-    #cpf;
     #nome;
     #dataNasc;
     #telefone;
     #email; 
     #cidade;
 
-    constructor(codigo=0, cpf="", nome="", dataNasc="", telefone="",email="", cidade="") {
+    constructor(codigo=0, nome="", dataNasc="", telefone="",email="", cidade="") {
         this.#codigo = codigo;
-        this.#cpf = cpf;
         this.#nome = nome;
         this.#dataNasc = dataNasc;
         this.#telefone = telefone;
@@ -23,9 +21,6 @@ export default class Evento {
     }    
     set codigo(novoCodigo){
         this.#codigo = novoCodigo;
-    }
-    get cpf(){
-        return this.#cpf;
     }
     get nome(){
         return this.#nome;
@@ -77,7 +72,6 @@ export default class Evento {
     toJSON(){
         return {
             "codigo": this.#codigo,
-            "cpf": this.#cpf,
             "nome": this.#nome,
             "dataNasc": this.#dataNasc,
             "telefone": this.#telefone,
