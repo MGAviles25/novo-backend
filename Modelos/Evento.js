@@ -40,7 +40,7 @@ export default class Evento {
         return this.#telefone;
     }
     set telefone(novotelefone){
-        this.#Times = novotelefone;
+        this.#telefone = novotelefone;
     }
     get email(){
         return this.#email;
