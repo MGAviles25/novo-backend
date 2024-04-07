@@ -1,0 +1,31 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "Backend trabalho",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+      "start": "node index.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/MGAviles25/novo-backend.git"
+    },
+    "keywords": [
+      "backend",
+      "aula",
+      "programação",
+      "internet"
+    ],
+    "author": "Miguel Garcia",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/MGAviles25/novo-backend.git"
+    },
+    "homepage": "https://github.com/MGAviles25/novo-backend.git",
+    "dependencies": {
+      "express": "^4.18.3",
+      "mysql2": "^3.9.1"
+    }
+  }
